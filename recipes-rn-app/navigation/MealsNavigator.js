@@ -11,6 +11,7 @@ import { enableScreens } from "react-native-screens"; //for optimized performanc
 enableScreens();
 
 const MealsNavigator = createStackNavigator(
+  //loads in order from top down
   {
     Categories: {
       screen: CategoryScreen,
