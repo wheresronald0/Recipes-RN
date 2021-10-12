@@ -6,26 +6,22 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
-import CategoryMealsScreen from "./CategoryMealsScreen";
+import CategoryGridTile from "../components/CategoryGridTile";
 
 import { CATEGORIES } from "../data/dummy-data";
 
 const CategoryScreen = (props) => {
   const renderGridItem = (itemData) => {
     return (
-      <TouchableOpacity
-        style={styles.gridItem}
-        onPress={() => {
+      <CategoryGridTile
+        title={itemData.item.title}
+        onSelect={() => {
           props.navigation.navigate("CategoryMeals", {
             categoryId: itemData.item.id,
           }); //.navigate passes data along to my identifier/top stack screen
         }}
-      >
-        <View>
-          <Text>{itemData.item.title}</Text>
-        </View>
-      </TouchableOpacity>
-    ); //.item is a property flatlist gives you for each item from my CATEGORIES data file
+      />
+    );
   };
 
   return (

@@ -7,6 +7,9 @@ import CategoryMealsScreen from "../container/CategoryMealsScreen";
 import CategoryScreen from "../container/CategoryScreen";
 import MealDetailScreen from "../container/MealDetailScreen";
 
+import { enableScreens } from "react-native-screens"; //for optimized performance
+enableScreens();
+
 const MealsNavigator = createStackNavigator(
   {
     Categories: {
