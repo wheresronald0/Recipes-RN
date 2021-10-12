@@ -1,26 +1,24 @@
 import React from "react";
 import {
-  Button,
   StyleSheet,
   Text,
   View,
   FlatList,
   TouchableOpacity,
-  Touchable,
 } from "react-native";
 import CategoryMealsScreen from "./CategoryMealsScreen";
 
 import { CATEGORIES } from "../data/dummy-data";
 
 const CategoryScreen = (props) => {
-  console.log(props);
-
   const renderGridItem = (itemData) => {
     return (
       <TouchableOpacity
         style={styles.gridItem}
         onPress={() => {
-          props.navigation.navigate("CategoryMeals");
+          props.navigation.navigate("CategoryMeals", {
+            categoryId: itemData.item.id,
+          }); //.navigate passes data along to my identifier/top stack screen
         }}
       >
         <View>
@@ -33,6 +31,11 @@ const CategoryScreen = (props) => {
   return (
     <FlatList data={CATEGORIES} renderItem={renderGridItem} numColumns={2} />
   );
+};
+
+// options that rNav give you to customize
+CategoryScreen.navigationOptions = {
+  headerTitle: "Meal Categories",
 };
 
 const styles = StyleSheet.create({
