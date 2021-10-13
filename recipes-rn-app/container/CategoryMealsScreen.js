@@ -1,23 +1,26 @@
 import React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Button, FlatList, StyleSheet, Text, View } from "react-native";
 
-import { CATEGORIES } from "../data/dummy-data";
+import { CATEGORIES, MEALS } from "../data/dummy-data";
 
 const CategoryMealsScreen = (props) => {
+  const renderMealItem = (itemData) => {
+    return (
+      <View>
+        <Text>{itemData.item.title}</Text>
+      </View>
+    );
+  };
   const catId = props.navigation.getParam("categoryId"); //getParams is a method used to extract the data I passes from the CatagoryScreen. You can pass multiple params
 
-  const selectedCategory = CATEGORIES.find((cat) => cat.id === catId);
+  //const selectedCategory = CATEGORIES.find((cat) => cat.id === catId);
+  const displayedMeals = MEALS.filter(
+    (meal) => meal.categoryIds.indexOf(catId) >= 0
+  );
 
   return (
     <View style={styles.screen}>
-      <Text>The Category Meals Screen</Text>
-      <Text>{selectedCategory.title}</Text>
-      <Button
-        title="Get recipe details"
-        onPress={() => {
-          props.navigation.navigate("MealDetail");
-        }}
-      />
+      <FlatList data={displayedMeals} renderItem={renderMealItem} />
     </View>
   );
 };
