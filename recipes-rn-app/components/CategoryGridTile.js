@@ -28,8 +28,8 @@ styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 10,
     shadowColor: "black",
-    shadowOpacity: 0.2,
-    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowOffset: { width: 0, height: 5 },
     shadowRadius: 10,
     elevation: 3, //for andriod becasue shadow only affects iOS
   },

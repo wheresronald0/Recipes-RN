@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   ImageBackground,
+  Platform,
 } from "react-native";
 
 const MealItem = (props) => {
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
     marginVertical: 15,
     backgroundColor: "#e0e0e0",
     borderRadius: 10,
-    overflow: "hidden", //the image doesn't respect the border so set overflow to hidden so no child can go outside the space
+    overflow: Platform.OS === "android" ? "hidden" : "visible", //the image doesn't respect the border so set overflow to hidden so no child can go outside the space
   },
   bgImage: {
     width: "100%",

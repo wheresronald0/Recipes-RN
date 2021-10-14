@@ -34,6 +34,7 @@ const CategoryMealsScreen = (props) => {
         keyExtractor={(item, index) => item.id}
         data={displayedMeals}
         renderItem={renderMealItem}
+        style={styles.list}
       />
     </View>
   );
@@ -54,6 +55,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  list: {
+    width: "95%",
   },
 });
 
