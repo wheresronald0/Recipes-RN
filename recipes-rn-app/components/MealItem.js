@@ -25,56 +25,52 @@ const MealItem = (props) => {
             </ImageBackground>
           </View>
           <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
-            <Text style={styles.text}>{props.duration}</Text>
-            <Text style={styles.text}>{props.complexity.toUpperCase()}</Text>
-            <Text style={styles.text}>{props.affordability.toUpperCase()}</Text>
+            <Text>{props.duration}m</Text>
+            <Text>{props.complexity.toUpperCase()}</Text>
+            <Text>{props.affordability.toUpperCase()}</Text>
           </View>
         </View>
       </TouchableOpacity>
     </View>
   );
 };
-styles = StyleSheet.create({
-  mealRow: {
-    flexDirection: "row",
-  },
+
+const styles = StyleSheet.create({
   mealItem: {
     height: 200,
     width: "100%",
+    marginVertical: 15,
     backgroundColor: "#e0e0e0",
-    marginVertical: 30,
     borderRadius: 10,
     overflow: "hidden", //the image doesn't respect the border so set overflow to hidden so no child can go outside the space
   },
+  bgImage: {
+    width: "100%",
+    height: "100%",
+    justifyContent: "flex-end",
+  },
+  mealRow: {
+    flexDirection: "row",
+  },
   mealHeader: {
     height: "85%",
+  },
+  mealDetail: {
     paddingHorizontal: 10,
+    justifyContent: "space-between",
+    alignItems: "center",
+    height: "15%",
   },
   titleContainer: {
-    backgroundColor: "rgba(0,0,0, 0.5)",
+    backgroundColor: "rgba(0,0,0,0.5)",
     paddingVertical: 5,
-    paddingHorizontal: 10,
+    paddingHorizontal: 12,
   },
   title: {
     fontFamily: "open-sansBold",
-    fontSize: 18,
+    fontSize: 20,
     color: "white",
     textAlign: "center",
-  },
-  mealDetail: {
-    height: "15%",
-    justifyContent: "space-between",
-    paddingHorizontal: 10,
-    alignItems: "center",
-  },
-  text: {
-    fontFamily: "open-sans",
-  },
-  bgImage: {
-    //have to set width and height for an image
-    width: "100%",
-    height: "100%",
-    justifyContent: "flex-end", //backgroundImage acts like a flexbox for content inside
   },
 });
 

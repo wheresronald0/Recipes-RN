@@ -13,7 +13,11 @@ const CategoryMealsScreen = (props) => {
         duration={itemData.item.duration}
         complexity={itemData.item.complexity}
         affordability={itemData.item.affordability}
-        onSelectMeal={() => {}}
+        onSelectMeal={() => {
+          props.navigation.navigate("MealDetail", {
+            mealId: itemData.item.id,
+          });
+        }}
       />
     );
   };
@@ -27,7 +31,7 @@ const CategoryMealsScreen = (props) => {
   return (
     <View style={styles.screen}>
       <FlatList
-        style={{ width: "100%" }}
+        keyExtractor={(item, index) => item.id}
         data={displayedMeals}
         renderItem={renderMealItem}
       />

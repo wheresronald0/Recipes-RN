@@ -6,7 +6,6 @@ import { CATEGORIES } from "../data/dummy-data";
 
 const CategoryScreen = (props) => {
   const renderGridItem = (itemData) => {
-    console.log(itemData);
     return (
       <CategoryGridTile
         title={itemData.item.title}
@@ -21,7 +20,12 @@ const CategoryScreen = (props) => {
   };
 
   return (
-    <FlatList data={CATEGORIES} renderItem={renderGridItem} numColumns={2} />
+    <FlatList
+      keyExtractor={(item, index) => item.id}
+      data={CATEGORIES}
+      renderItem={renderGridItem}
+      numColumns={2}
+    />
   );
 };
 
