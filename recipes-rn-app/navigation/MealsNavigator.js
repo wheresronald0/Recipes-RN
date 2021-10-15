@@ -4,6 +4,7 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { Ionicons } from "@expo/vector-icons";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import Colors from "../constants/Colors";
 
 import CategoryMealsScreen from "../container/CategoryMealsScreen";
@@ -37,41 +38,50 @@ const MealsNavigator = createStackNavigator(
     },
   }
 );
-
-const MealsFavoriteTabNav = createBottomTabNavigator(
-  {
-    Meals: {
-      screen: MealsNavigator,
-      navigationOptions: {
-        tabBarIcon: (tabInfo) => {
-          return (
-            <Ionicons
-              name="ios-restaurant"
-              size={25}
-              color={tabInfo.tintColor} //tabInfo automatically retrieves the dynamic color value I've already set up
-            />
-          );
-        },
+const tabScreenConfig = {
+  Meals: {
+    screen: MealsNavigator,
+    navigationOptions: {
+      tabBarIcon: (tabInfo) => {
+        return (
+          <Ionicons
+            name="ios-restaurant"
+            size={25}
+            color={tabInfo.tintColor} //tabInfo automatically retrieves the dynamic color value I've already set up
+          />
+        );
       },
-    },
-    Favorites: {
-      screen: FavoritesScreen,
-      navigationOptions: {
-        tabBarIcon: (tabInfo) => {
-          return (
-            <Ionicons
-              name="ios-star"
-              size={25}
-              color={tabInfo.tintColor} //tabInfo automatically retrieves the dynamic color value I've already set up
-            />
-          );
-        },
-      },
+      tabBarColor: Colors.primaryColor, //for andriod
     },
   },
-  {
-    tabBarOptions: { activeTintColor: Colors.secondaryColor },
-  }
-);
+  Favorites: {
+    screen: FavoritesScreen,
+    navigationOptions: {
+      tabBarIcon: (tabInfo) => {
+        return (
+          <Ionicons
+            name="ios-star"
+            size={25}
+            color={tabInfo.tintColor} //tabInfo automatically retrieves the dynamic color value I've already set up
+          />
+        );
+      },
+      tabBarColor: Colors.secondaryColor, //for android
+    },
+  },
+};
+
+const MealsFavoriteTabNav =
+  Platform.OS === "android"
+    ? createMaterialBottomTabNavigator(tabScreenConfig, {
+        activeColor: "white",
+        shifting: true,
+        barStyle: {
+          backgroundColor: Colors.primaryColor,
+        },
+      })
+    : createBottomTabNavigator(tabScreenConfig, {
+        tabBarOptions: { activeTintColor: Colors.secondaryColor },
+      });
 
 export default createAppContainer(MealsFavoriteTabNav); //this includes all the meta data
