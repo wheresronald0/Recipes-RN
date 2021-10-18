@@ -23,6 +23,12 @@ const defaulNavStackOptions = {
     backgroundColor: Platform.OS === "android" ? Colors.primaryColor : "",
   },
   headerTintColor: Platform.OS === "android" ? "white" : Colors.primaryColor,
+  headerTitleStyle: {
+    fontFamily: "open-sansBold",
+  },
+  headerBackTitleStyle: {
+    fontFamily: "open-sans",
+  },
 };
 
 const MealsNavigator = createStackNavigator(
@@ -97,17 +103,42 @@ const MealsFavoriteTabNav =
         },
       })
     : createBottomTabNavigator(tabScreenConfig, {
-        tabBarOptions: { activeTintColor: Colors.secondaryColor },
+        tabBarOptions: {
+          activeTintColor: Colors.secondaryColor,
+          labelStyle: {
+            fontFamily: "open-sans",
+          },
+        },
       });
 
-const FiltersNavigator = createStackNavigator({
-  Filters: FiltersScreen,
-});
+const FiltersNavigator = createStackNavigator(
+  {
+    Filters: FiltersScreen,
+  },
+  {
+    defaultNavigationOptions: defaulNavStackOptions,
+  }
+);
 
 //Drawer
-const MainNavigator = createDrawerNavigator({
-  MealsFavs: MealsFavoriteTabNav,
-  Filters: FiltersNavigator,
-});
+const MainNavigator = createDrawerNavigator(
+  {
+    MealsFavs: {
+      screen: MealsFavoriteTabNav,
+      navigationOptions: {
+        drawerLabel: "Meals",
+      },
+    },
+    Filters: FiltersNavigator,
+  },
+  {
+    contentOptions: {
+      activeTintColor: Colors.secondaryColor,
+      labelStyle: {
+        fontFamily: "open-sansBold",
+      },
+    },
+  }
+);
 
 export default createAppContainer(MainNavigator); //this includes all the meta data

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
@@ -11,9 +11,17 @@ const MealDetailScreen = (props) => {
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
 
   return (
-    <View style={styles.screen}>
-      <Text>{selectedMeal.title}</Text>
-    </View>
+    <ScrollView>
+      <Image />
+      <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
+        <Text>{props.duration}</Text>
+        <Text>{props.complexity.toUpperCase()}</Text>
+        <Text>{props.affordability.toUpperCase()}</Text>
+      </View>
+      <View style={styles.screen}>
+        <Text>{selectedMeal.title}</Text>
+      </View>
+    </ScrollView>
   );
 };
 

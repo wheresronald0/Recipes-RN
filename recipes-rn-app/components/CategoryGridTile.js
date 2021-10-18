@@ -34,9 +34,9 @@ styles = StyleSheet.create({
     elevation: 3, //for andriod becasue shadow only affects iOS
   },
   title: {
-    fontFamily: "open-sansBold",
-    fontSize: 16,
-    //color: "white",
+    fontFamily: "open-sans",
+    fontSize: 19,
+    color: "#ff6347",
   },
 });
 

@@ -2,15 +2,15 @@ import Category from "./models/category";
 import Meal from "./models/meal";
 
 export const CATEGORIES = [
-  new Category("c1", "Italian", "#f5428d"),
-  new Category("c2", "Quick & Easy", "#f54242"),
-  new Category("c3", "Hamburgers", "#f5a442"),
-  new Category("c4", "German", "#f5d142"),
-  new Category("c5", "Light & Lovely", "#368dff"),
-  new Category("c6", "Exotic", "#41d95d"),
-  new Category("c7", "Breakfast", "#9eecff"),
-  new Category("c8", "Asian", "#b9ffb0"),
-  new Category("c9", "French", "#ffc7ff"),
+  new Category("c1", "Italian", "#f5f5f5"),
+  new Category("c2", "Quick & Easy", "#f5f5f5"),
+  new Category("c3", "Hamburgers", "#f5f5f5"),
+  new Category("c4", "German", "#f5f5f5"),
+  new Category("c5", "Light & Lovely", "#f5f5f5"),
+  new Category("c6", "Deserts", "#f5f5f5"),
+  new Category("c7", "Breakfast", "#f5f5f5"),
+  new Category("c8", "Asian", "#f5f5f5"),
+  new Category("c9", "French", "#f5f5f5"),
   new Category("c10", "Summer", "#47fced"),
 ];
 
@@ -21,7 +21,7 @@ export const MEALS = [
     "Spaghetti with Tomato Sauce",
     "affordable",
     "simple",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg",
+    "https://images.unsplash.com/photo-1622973536968-3ead9e780960?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
     20,
     [
       "4 Tomatoes",
@@ -49,22 +49,21 @@ export const MEALS = [
   new Meal(
     "m2",
     ["c2"],
-    "Toast Hawaii",
+    "Vegan Avacado Toast",
     "affordable",
     "simple",
-    "https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg",
+    "https://images.unsplash.com/photo-1490323814405-4aa634235c2b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
     10,
     [
-      "1 Slice White Bread",
-      "1 Slice Ham",
-      "1 Slice Pineapple",
-      "1-2 Slices of Cheese",
-      "Butter",
+      "1 Slice Multi-Grain Bread",
+      "1 Sliced Avacado",
+      "Sesame seeds fresh sage to garnish",
+      "Vegan Butter",
     ],
     [
-      "Butter one side of the white bread",
-      "Layer ham, the pineapple and cheese on the white bread",
+      "Butter one side of the multi-grain bread",
       "Bake the toast for round about 10 minutes in the oven at 200°C",
+      "Layer avacado slices, and garnish with sesame seeds and sage to taste",
     ],
     false,
     false,
@@ -75,10 +74,10 @@ export const MEALS = [
   new Meal(
     "m3",
     ["c3"],
-    "Classic Hamburger",
+    "Backyard Burger",
     "pricey",
     "simple",
-    "https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg",
+    "https://images.unsplash.com/photo-1428660386617-8d277e7deaf2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
     45,
     [
       "300g Cattle Hack",
@@ -107,7 +106,7 @@ export const MEALS = [
     "Wiener Schnitzel",
     "luxurious",
     "challenging",
-    "https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg",
+    "https://images.unsplash.com/photo-1585325701956-60dd9c8553bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=735&q=80",
     60,
     [
       "8 Veal Cutlets",
@@ -137,10 +136,10 @@ export const MEALS = [
   new Meal(
     "m5",
     ["c2", "c5", "c10"],
-    "Salad with Smoked Salmon",
+    "Smoked Salmon & Mixed Greens",
     "luxurious",
     "simple",
-    "https://cdn.pixabay.com/photo/2016/10/25/13/29/smoked-salmon-salad-1768890_1280.jpg",
+    "https://images.unsplash.com/photo-1514573427993-53fb869eb83e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
     15,
     [
       "Arugula",
@@ -169,10 +168,10 @@ export const MEALS = [
   new Meal(
     "m6",
     ["c6", "c10"],
-    "Delicious Orange Mousse",
+    "Orange Mousse",
     "affordable",
     "hard",
-    "https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg",
+    "https://images.unsplash.com/photo-1560180474-e8563fd75bab?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8b3JhbmdlJTIwbW91c3NlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     240,
     [
       "4 Sheets of Gelatine",
@@ -205,7 +204,7 @@ export const MEALS = [
     "Pancakes",
     "affordable",
     "simple",
-    "https://cdn.pixabay.com/photo/2018/07/10/21/23/pancake-3529653_1280.jpg",
+    "https://images.unsplash.com/photo-1541288097308-7b8e3f58c4c6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80",
     20,
     [
       "1 1/2 Cups all-purpose Flour",
@@ -234,7 +233,7 @@ export const MEALS = [
     "Creamy Indian Chicken Curry",
     "pricey",
     "challenging",
-    "https://cdn.pixabay.com/photo/2018/06/18/16/05/indian-food-3482749_1280.jpg",
+    "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=684&q=80",
     35,
     [
       "4 Chicken Breasts",
@@ -308,10 +307,10 @@ export const MEALS = [
   new Meal(
     "m10",
     ["c2", "c5", "c10"],
-    "Asparagus Salad with Cherry Tomatoes",
+    "Asparagus Parmesian Salad",
     "luxurious",
     "simple",
-    "https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg",
+    "https://images.unsplash.com/photo-1511994714008-b6d68a8b32a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     30,
     [
       "White and Green Asparagus",
