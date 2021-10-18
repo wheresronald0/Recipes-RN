@@ -3,6 +3,8 @@ import { Platform } from "react-native";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
+import { createDrawerNavigator } from "react-navigation-drawer";
+
 import { Ionicons } from "@expo/vector-icons";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs"; //andriod bottom bar
 import Colors from "../constants/Colors";
@@ -11,6 +13,7 @@ import CategoryMealsScreen from "../container/CategoryMealsScreen";
 import CategoryScreen from "../container/CategoryScreen";
 import MealDetailScreen from "../container/MealDetailScreen";
 import FavoritesScreen from "../container/FavoritesScreen";
+import FiltersScreen from "../container/FiltersScreen";
 
 import { enableScreens } from "react-native-screens"; //for optimized performance
 enableScreens();
@@ -50,6 +53,7 @@ const FavNavigator = createStackNavigator(
   }
 );
 
+//bottom Nav Bar
 const tabScreenConfig = {
   Meals: {
     screen: MealsNavigator,
@@ -96,4 +100,14 @@ const MealsFavoriteTabNav =
         tabBarOptions: { activeTintColor: Colors.secondaryColor },
       });
 
-export default createAppContainer(MealsFavoriteTabNav); //this includes all the meta data
+const FiltersNavigator = createStackNavigator({
+  Filters: FiltersScreen,
+});
+
+//Drawer
+const MainNavigator = createDrawerNavigator({
+  MealsFavs: MealsFavoriteTabNav,
+  Filters: FiltersNavigator,
+});
+
+export default createAppContainer(MainNavigator); //this includes all the meta data

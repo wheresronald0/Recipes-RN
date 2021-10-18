@@ -18,7 +18,7 @@ const CategoryMealsScreen = (props) => {
 
 CategoryMealsScreen.navigationOptions = (navigationData) => {
   //.navigationOptions can be static data for a dynamic function and still get passed all the (props/i.e. navigationData)
-  console.log(navigationData);
+  //console.log(navigationData);
   const catId = navigationData.navigation.getParam("categoryId");
   const selectedCategory = CATEGORIES.find((cat) => cat.id === catId);
   return {

@@ -1,8 +1,12 @@
 import React from "react";
 import { StyleSheet, FlatList } from "react-native";
 import CategoryGridTile from "../components/CategoryGridTile";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
+
+import CustomHeaderButton from "../components/CustomHeaderButton";
 
 import { CATEGORIES } from "../data/dummy-data";
+import { HeaderBackButton } from "react-navigation-stack";
 
 const CategoryScreen = (props) => {
   const renderGridItem = (itemData) => {
@@ -30,8 +34,22 @@ const CategoryScreen = (props) => {
 };
 
 // options that rNav give you to customize
-CategoryScreen.navigationOptions = {
-  headerTitle: "Meal Categories",
+CategoryScreen.navigationOptions = (navData) => {
+  console.log(navData.navigation);
+  return {
+    headerTitle: "Meal Categories",
+    headerLeft: () => (
+      <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+        <Item
+          title="Menu"
+          iconName="ios-menu"
+          onPress={() => {
+            navData.navigation.toggleDrawer();
+          }}
+        />
+      </HeaderButtons>
+    ),
+  };
 };
 
 const styles = StyleSheet.create({
