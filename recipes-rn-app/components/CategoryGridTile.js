@@ -1,5 +1,6 @@
 import React from "react";
 import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
+import Colors from "../constants/Colors";
 
 const CategoryGridTile = (props) => {
   return (
@@ -34,9 +35,9 @@ styles = StyleSheet.create({
     elevation: 3, //for andriod becasue shadow only affects iOS
   },
   title: {
-    fontFamily: "open-sans",
-    fontSize: 19,
-    color: "#ff6347",
+    fontFamily: "open-sansBold",
+    fontSize: 21,
+    color: "#fff8dc",
   },
 });
 

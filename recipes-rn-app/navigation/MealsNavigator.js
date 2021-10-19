@@ -104,7 +104,7 @@ const MealsFavoriteTabNav =
       })
     : createBottomTabNavigator(tabScreenConfig, {
         tabBarOptions: {
-          activeTintColor: Colors.secondaryColor,
+          activeTintColor: Colors.accentColor,
           labelStyle: {
             fontFamily: "open-sans",
           },

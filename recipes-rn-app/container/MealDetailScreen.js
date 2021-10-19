@@ -11,16 +11,28 @@ const MealDetailScreen = (props) => {
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
 
   return (
-    <ScrollView>
-      <Image />
-      <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
-        <Text>{props.duration}</Text>
-        <Text>{props.complexity.toUpperCase()}</Text>
-        <Text>{props.affordability.toUpperCase()}</Text>
+    <ScrollView style={{ marginHorizontal: 10 }}>
+      <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
+      <View style={styles.details}>
+        <Text style={styles.text}>{selectedMeal.duration} min</Text>
+        <Text style={styles.text}>{selectedMeal.complexity.toUpperCase()}</Text>
+        <Text style={styles.text}>
+          {selectedMeal.affordability.toUpperCase()}
+        </Text>
       </View>
-      <View style={styles.screen}>
-        <Text>{selectedMeal.title}</Text>
-      </View>
+      <Text style={styles.title}>Ingredients</Text>
+
+      {selectedMeal.ingredients.map((ingredient) => (
+        <Text style={{ ...styles.text, ...styles.listItems }} key={ingredient}>
+          {ingredient}
+        </Text>
+      ))}
+      <Text style={styles.title}>Steps</Text>
+      {selectedMeal.steps.map((step) => (
+        <Text style={{ ...styles.text, ...styles.listItems }} key={step}>
+          - {step}
+        </Text>
+      ))}
     </ScrollView>
   );
 };
@@ -46,10 +58,28 @@ MealDetailScreen.navigationOptions = (navigationData) => {
 };
 
 const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+  image: {
+    width: "100%",
+    height: 370,
+  },
+  details: {
+    flexDirection: "row",
+    padding: 15,
+    justifyContent: "space-around",
+  },
+  title: {
+    fontFamily: "open-sansBold",
+    fontSize: 19,
+    textAlign: "center",
+    marginTop: 15,
+    marginBottom: 15,
+  },
+  text: {
+    fontFamily: "open-sans",
+    //padding: 10,
+  },
+  listItems: {
+    padding: 7,
   },
 });
 
