@@ -1,15 +1,20 @@
 import React from "react";
+
 import { Button, FlatList, StyleSheet, Text, View } from "react-native";
+import { useSelector } from "react-redux";
+
 import MealItem from "../components/MealItem";
 import MealList from "../components/MealsList";
 
-import { CATEGORIES, MEALS } from "../data/dummy-data";
+import { CATEGORIES } from "../data/dummy-data";
 
 const CategoryMealsScreen = (props) => {
-  const catId = props.navigation.getParam("categoryId"); //getParams is a method used to extract the data I passes from the CatagoryScreen. You can pass multiple params
+  const availableMeals = useSelector((state) => state.meals.filteredMeals);
+
+  const catId = props.navigation.getParam("categoryId"); //getParams is a method used to extract the data I pass from the CatagoryScreen. You can pass multiple params
 
   //const selectedCategory = CATEGORIES.find((cat) => cat.id === catId);
-  const displayedMeals = MEALS.filter(
+  const displayedMeals = availableMeals.filter(
     (meal) => meal.categoryIds.indexOf(catId) >= 0
   );
 

@@ -16,7 +16,7 @@ const CategoryScreen = (props) => {
         color={itemData.item.color}
         onSelect={() => {
           props.navigation.navigate("CategoryMeals", {
-            categoryId: itemData.item.id,
+            categoryId: itemData.item.id, //passin catgoryId to CatagoryMeals aka CatagoryMealsScreen
           }); //.navigate passes data along to my identifier/top stack screen
         }}
       />
@@ -33,7 +33,7 @@ const CategoryScreen = (props) => {
   );
 };
 
-// options that rNav give you to customize
+// options that rNav gives you to customize
 CategoryScreen.navigationOptions = (navData) => {
   console.log(navData.navigation);
   return {
