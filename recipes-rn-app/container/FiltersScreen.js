@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { StyleSheet, Switch, Text, View, Platform } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import { useDispatch } from "react-redux";
 
 import CustomHeaderButton from "../components/CustomHeaderButton";
 import Colors from "../constants/Colors";
+import { setFilters } from "../store/actions/meals";
 
 const FiltersScreen = (props) => {
   const { navigation } = props; //stores navigation key and stores it in a new const under the same name so I can use in useEffect without .props, so it doesn't re-run
@@ -13,6 +15,8 @@ const FiltersScreen = (props) => {
   const [isVegetarian, setIsVegetarian] = useState(false);
   const [isLactosFree, setIsLactosFree] = useState(false);
 
+  const dispatch = useDispatch();
+
   const savePreferences = useCallback(() => {
     const appliedPrefs = {
       glutenFree: isGlutenFree,
@@ -21,8 +25,8 @@ const FiltersScreen = (props) => {
       lactoFree: isLactosFree,
     };
 
-    console.log(appliedPrefs);
-  }, [isLactosFree, isVegetarian, isVegan, isGlutenFree]);
+    dispatch(setFilters(appliedPrefs));
+  }, [isLactosFree, isVegetarian, isVegan, isGlutenFree, dispatch]);
 
   useEffect(() => {
     navigation.setParams({ save: savePreferences });
